@@ -1,13 +1,12 @@
 class StudentsController < ApplicationController
-<<<<<<< HEAD
+prawnto :prawn => { :top_margin => 75 }
 
-=======
   def index
     
   end
 
   def show
-    
+    @order = "Hello World "    
   end
->>>>>>> 0eb1e3fddd373bf15aca478975b87c778dda1a90
+
 end
