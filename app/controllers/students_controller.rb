@@ -12,10 +12,14 @@ class StudentsController < ApplicationController
 
       format.html
       format.pdf do
+        
         pdf = Prawn::Document.new
-        pdf.text 'Hello World'
+        pdf.text "Nightmare Developer, #{@student.first_name}!", :size => 30, :style => :bold
+        pdf.text @student.first_name, :size =>15, :style => :italic #['full_name']
+        pdf.text @student.short_bio
+        pdf.text @student.photo
 
-        send_data pdf.render  
+        send_data pdf.render 
       end
     end 
   end
