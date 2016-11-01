@@ -1,12 +1,14 @@
 class Student < ApplicationRecord
-  def full_name
-    "#{first_name} #{last_name}"
+
+  def self.all
+    collection = []
+    Unirest.get('https://frightening-flesh-58210.herokuapp.com/students.json').body.each do |student|
+      collection << student
+    end
+    collection
   end
 
-  def array
-    # eventually this will be an API call
-    collection = []
-
-
+  def self.find(params_id) 
+    Student.new(Unirest.get("https://frightening-flesh-58210.herokuapp.com/students/#{params_id}.json").body)
   end
 end

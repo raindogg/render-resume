@@ -1,6 +1,6 @@
 <h1>Students</h1>
 <% @students.each do |student| %>
 
-    <h3><%= link_to student.full_name, "students/#{student[:id]}" %></h3>
-    <p><%= student[:bio] %></p>
+    <h3><a href="/students/<%= student['id'] %>"><%= student["first_name"] %> <%= student["last_name"] %></a></h3>
+    <p><%= student["short_bio"] %></p>
 <% end %>
