@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
-    
+
     respond_to do |format|
 
       format.html
