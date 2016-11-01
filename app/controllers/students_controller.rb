@@ -19,6 +19,7 @@ class StudentsController < ApplicationController
         pdf.text @student.short_bio
         pdf.text @student.photo
 
+        
         send_data pdf.render 
       end
     end 
