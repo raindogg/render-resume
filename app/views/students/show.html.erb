@@ -1,3 +1,13 @@
-<h1><%= @student.first_name %></h1>
+<h1><%= @student.first_name %> <%= @student.last_name %></h1>
+<%= link_to "Download full resume (PDF)", "/students/#{@student.id}.pdf" %>
+<br>
 <%= image_tag @student.photo %>
 <p><%= @student.short_bio %></p>
+<h2>Skills</h2>
+<p><%= @student.skills(@student.id)["skill_name"] %></p>
+
+<h2>Capstone</h2>
+<%= image_tag @student.capstones(@student.id)["screenshot"] %>
+<h3><a href="<%= @student.capstones(@student.id)["url"] %>"><%= @student.capstones(@student.id)["name"] %></a></h3>
+<p><%= @student.capstones(@student.id)["description"] %></p>
+
