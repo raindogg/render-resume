@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Student < ApplicationRecord
 
   def self.all

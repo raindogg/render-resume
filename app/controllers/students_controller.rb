@@ -15,9 +15,15 @@ class StudentsController < ApplicationController
         
         pdf = Prawn::Document.new
         pdf.text "Nightmare Developer, #{@student.first_name}!", :size => 30, :style => :bold
-        pdf.text @student.first_name, :size =>15, :style => :italic #['full_name']
+
+        pdf.image open(@student.photo)
+        pdf.text @student.full_name, :size =>15, :style => :italic #['full_name']
         pdf.text @student.short_bio
-        pdf.text @student.photo
+        pdf.text "Email: #{@student.email}"
+        pdf.text "LinkedIn: #{@student.linkedin_url}"
+        pdf.text "Twitter: @#{@student.twitter_handle}"
+        pdf.text ""
+
 
         send_data pdf.render 
       end
