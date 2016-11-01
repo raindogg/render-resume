@@ -25,6 +25,7 @@ class StudentsController < ApplicationController
         pdf.text ""
 
 
+        
         send_data pdf.render 
       end
     end 
